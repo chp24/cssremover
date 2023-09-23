@@ -20,6 +20,7 @@ window.onload = function() {
                     //if we see the beginning of the word style, we know its a style attribute
                     if(tempTxt[j] == "s" && tempTxt[j+1] == "t" && tempTxt[j+2] == "y"){
                         //new iterator for going from beginning to end of style attribute
+                        console.log(i, tempt[Txt[j]]);
                         y =j;
                         //while we know the if statements are false
                         while(check == true){
