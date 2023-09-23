@@ -18,25 +18,25 @@ window.onload  =  function () {
                 //begin a new loop that will stop once we hit the end of the tag
                 while ( tempTxt [ j ] !==  ">" ){
                     //if we see the beginning of the word style, we know its a style attribute
-                    if ( tempTxt [ j ] ==  "s"  &&  tempTxt [ j + 1 ] ==  "t"  &&  tempTxt [ j + 2 ] ==  "y" ){
+                    if (tempTxt[j]== "s" && tempTxt [j+1] == "t" && tempTxt[j+2]== "y"){
                         //new iterator for going from beginning to end of style attribute
-                        console.log (i , tempTxt [ j ]);
-                        styleStart  =  j
-                        y  = j ;
+                        console.log (i,tempTxt[j]);
+                        styleStart = j
+                        y = j;
                         //while we know the if statements are false
-                        while ( check  ==  true ){
-                            console.log ( tempTxt [ y ],  tempTxt [ y + 1 ]);
+                        while ( check == true){
+                            console.log(tempTxt[y], tempTxt[y+1]);
                             //if our current character is a double quote followed by a space, we know the style attribute has ended
-                            if ( tempTxt [ y ] ==  '"'  &&  tempTxt [ y + 1 ] == " " ){
-                                tempTxt  =  tempTxt.subString ( 0 , j - 1 ) +  tempTxt.substring ( y + 1 );
-                                check  =  false ;
+                            if ( tempTxt[y]=='"' && tempTxt[y+1] == " "){
+                                tempTxt = tempTxt.subString(0,j-1)+tempTxt.substring(y+1);
+                                check = false ;
                            }
                             //we also know it has ended if
-                            else   if ( tempTxt [ y ]== '"' &&  tempTxt [ y + 1 ]== ">" ){
-                                tempTxt  =  tempTxt.subString ( 0 , j - 1 ) +  tempTxt.substring ( y + 1 );
-                                check  =  false ;
+                            else if(tempTxt[y]=='"'&& tempTxt[y+1]== ">"){
+                                tempTxt = tempTxt.subString(0,j-1)+tempTxt.substring(y+1);
+                                check = false ;
                            }
-                            console . log ( y );
+                            console.log(y);
                             y ++;
                        }
                    }
