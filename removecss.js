@@ -20,9 +20,14 @@ window.onload = function() {
                     if(txt[j] == "s" && txt[j+1] == "t" && txt[j+2] == "y"){
                         //store beginning of style attribute
                         styleStart = j;
+                        y =j;
                         //continue until we hit a double quotation mark followed by a space
-                        for(y=j;txt[y] !== '"' && txt[y+1] !== " ";y++ ){
-                            styleEnd = y;
+                        while(txt[y] !== '"' && txt[y+1] !== " "){
+                            //mark the new end
+                            styleEnd = y+1;
+                            //replace with empty character :)
+                            txt[y] = '';
+                            y++;
                         }
                     }
                     j++;
