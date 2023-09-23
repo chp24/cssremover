@@ -10,23 +10,24 @@ window.onload = function() {
         //setting up temp string to hold chunk of text we will be removing from the larger text
         var tempString = "";
         var styleStart = "";
-        for(i=0;i<txt.length-5;i++){
+        for(i=0;i<tempTxt.length-3;i++){
             //if we find an < in the html
-            if(txt[i]=="<" ){
+            if(tempTxt[i]=="<" ){
                 j = i;
                 //begin a new loop that will stop once we hit the end of the tag
-                while(txt[j] !== ">"){
+                while(tempTxt[j] !== ">"){
                     //if we see the beginning of the word style, we know its a style tag
-                    if(txt[j] == "s" && txt[j+1] == "t" && txt[j+2] == "y"){
+                    if(tempTxt[j] == "s" && tempTxt[j+1] == "t" && tempTxt[j+2] == "y"){
                         //store beginning of style attribute
                         styleStart = j;
+                        //new iterator for going from beginning to end of style attribute
                         y =j;
-                        //continue until we hit a double quotation mark followed by a space
-                        while(txt[y] !== '"' && txt[y+1] !== " "){
+                        //continue until we hit a double quotation mark followed by a space, or the end of the tag >
+                        while(tempTxt[y] !== '"' && tempTxt[y+1] !== " " && tempTxt[y+1] !== ">"){
                             //mark the new end
                             styleEnd = y+1;
                             //replace with empty character :)
-                            txt[y] = '';
+                            tempTxt[y] = '';
                             y++;
                         }
                     }
@@ -34,7 +35,7 @@ window.onload = function() {
                 }
             }
         }
-        document.getElementById("result").innerText = i;
+        document.getElementById("result").innerText = tempTxt;
 
     }
 }
