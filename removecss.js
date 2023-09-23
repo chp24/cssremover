@@ -10,22 +10,28 @@ window.onload = function() {
         //setting up temp string to hold chunk of text we will be removing from the larger text
         var tempString = "";
         var styleStart = "";
+        var check = true;
         for(i=0;i<tempTxt.length-3;i++){
             //if we find an < in the html
             if(tempTxt[i]=="<" ){
                 j = i;
                 //begin a new loop that will stop once we hit the end of the tag
                 while(tempTxt[j] !== ">"){
-                    //if we see the beginning of the word style, we know its a style tag
+                    //if we see the beginning of the word style, we know its a style attribute
                     if(tempTxt[j] == "s" && tempTxt[j+1] == "t" && tempTxt[j+2] == "y"){
-                        //store beginning of style attribute
-                        styleStart = j;
                         //new iterator for going from beginning to end of style attribute
                         y =j;
-                        //continue until we hit a double quotation mark followed by a space, or the end of the tag >
-                        while(tempTxt[y] !== '"' && tempTxt[y+1] !== " " && tempTxt[y+1] !== ">"){
-                            //mark the new end
-                            styleEnd = y+1;
+                        //while we know the if statements are false
+                        while(check == true){
+                            //if our current character is a double quote followed by a space, we know the style attribute has ended
+                            if(tempTxt[y] == '"' && tempTxt[y+1] ==" "){
+                                tempTxt[y+1] = '';
+                                check = false;
+                            }
+                            //we also know it has ended if
+                            else if(tempTxt[y]=='"'&& tempTxt[y+1]==">"){
+                                check = false;
+                            }
                             //replace with empty character :)
                             tempTxt[y] = '';
                             y++;
