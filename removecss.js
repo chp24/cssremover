@@ -29,13 +29,13 @@ window.onload  =  function () {
                             console.log(tempTxt[y], tempTxt[y+1]);
                             //if our current character is a double quote followed by a space, we know the style attribute has ended
                             if ( tempTxt[y]=='"' && tempTxt[y+1] == " "){
-                                endTxt = tempTxt.substring(0,j-1)+tempTxt.substring(y+1);
+                                tempTxt = tempTxt.substring(0,j-1)+tempTxt.substring(y+1);
                                 console.log("string subbed");
                                 check = false ;
                            }
                             //we also know it has ended if
                             else if(tempTxt[y]=='"'&& tempTxt[y+1]== ">"){
-                                endTxt = tempTxt.substring(0,j-1)+tempTxt.substring(y+1);
+                                tempTxt = tempTxt.substring(0,j-1)+tempTxt.substring(y+1);
                                 console.log("string subbed");
                                 check = false ;
                            }
@@ -47,6 +47,6 @@ window.onload  =  function () {
                }
            }
        }
-        document.getElementById("result").innerText = endTxt ;
+        document.getElementById("result").innerText = tempTxt ;
    }
 }
