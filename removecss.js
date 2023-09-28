@@ -18,7 +18,7 @@ window.onload  =  function () {
                 //begin a new loop that will stop once we hit the end of the tag
                 while (tempTxt[j] !==  ">" ){
                     //if we see the beginning of the word style, we know its a style attribute
-                    if (tempTxt[j]== "s" && tempTxt [j+1] == "t" && tempTxt[j+2]== "y"){
+                    if (tempTxt[j]== "s" && tempTxt [j+1] == "t"  && tempTxt[j+2]== "y" && tempTxt[j+3]== "l" && tempTxt[j+4]== "e" && tempTxt[j+5]== "="){
                         //new iterator for going from beginning to end of style attribute
                         console.log (i,tempTxt[j]);
                         styleStart = j
@@ -29,13 +29,13 @@ window.onload  =  function () {
                             console.log(tempTxt[y], tempTxt[y+1]);
                             //if our current character is a double quote followed by a space, we know the style attribute has ended
                             if ( tempTxt[y]=='"' && tempTxt[y+1] == " "){
-                                tempTxt = tempTxt.substring(0,j-1)+tempTxt.substring(y+1);
+                                tempTxt = tempTxt.substring(0,j)+tempTxt.substring(y+1);
                                 console.log("string subbed");
                                 check = false ;
                            }
                             //we also know it has ended if
                             else if(tempTxt[y]=='"'&& tempTxt[y+1]== ">"){
-                                tempTxt = tempTxt.substring(0,j-1)+tempTxt.substring(y+1);
+                                tempTxt = tempTxt.substring(0,j)+tempTxt.substring(y+1);
                                 console.log("string subbed");
                                 check = false ;
                            }
