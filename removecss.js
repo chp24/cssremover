@@ -47,6 +47,7 @@ window.onload  =  function () {
                }
            }
        }
+       //storing and copying to clipboard
         document.getElementById("result").innerText = tempTxt ;
         let result_text = document.getElementById("result").innerText;
         navigator.clipboard.writeText(result_text).then(function(){console.log("text copied :)")})
